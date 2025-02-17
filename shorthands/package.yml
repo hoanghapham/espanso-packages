@@ -76,7 +76,6 @@ matches:
       ---
       Year: "[[{{current_year}}]]"
       Month: "[[{{current_month}}]]"
-
       ---
   
   - trigger: ":donedate"
