@@ -1,1 +1,5 @@
-# Personal espanso packages.
+# Personal espanso packages
+
+Two packages:
+- metadata-header
+- shorthands
