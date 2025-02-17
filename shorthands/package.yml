@@ -1,0 +1,142 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+global_vars:
+  - name: current_year
+    type: date
+    params:
+      format: "%Y"
+  
+  - name: current_month
+    type: date
+    params:
+      format: "%Y-M%m"
+
+  - name: current_week
+    type: date
+    params:
+      format: "%Y-W%V"
+  
+  - name: current_date
+    type: date
+    params:
+      format: "%Y-%m-%d %A"
+
+  - name: current_time
+    type: date
+    params:
+      format: "%H:%M"
+
+  - name: dnote
+    type: date
+    params:
+      format: "%Y-%m-%d_%A"  
+
+  - name: added_date
+    type: date
+    params:
+      format: |
+          - "[[%Y]]"
+          - "[[%Y-M%m]]"
+          - "[[%Y-W%V]]"
+          - "[[days/%Y-%m-%d_%A]]"
+
+
+matches:
+
+  # Dates
+  - trigger: ":today"
+    replace: "{{current_date}}"
+  
+  - trigger: ":week"
+    replace: "{{current_week}}"
+
+  - trigger: ":wnote"
+    replace: "[[{{current_week}}]]"
+
+  - trigger: ":mnote"
+    replace: "[[{{current_month}}]]"
+
+  - trigger: ":now"
+    replace: "{{current_date}} {{current_time}}"
+
+
+  - trigger: ":dnote"
+    replace: "[[days/{{dnote}}]]"
+      
+
+  - trigger: ":whead"
+    replace: |
+      ---
+      Year: "[[{{current_year}}]]"
+      Month: "[[{{current_month}}]]"
+
+      ---
+  
+  - trigger: ":donedate"
+    replace: |
+      [[{{current_year}}]]
+      [[{{current_month}}]]
+      [[{{current_week}}]]
+      [[{{current_date}}]]
+
+
+  # Shorthands
+
+  - trigger: ":ulis"
+    replace: "University of Languages and International Studies"
+
+  - trigger: ":vnu"
+    replace: |
+      Vietnam National University
+
+  - trigger: ":mat"
+    replace: "\\begin{bmatrix} \\end{bmatrix}"
+  
+  - trigger: ":futurum"
+    replace: |
+      hoph1833@futurum.lingfil.uu.se
+
+
+  - trigger: ":aqlbeta"
+    replace: |
+      :::info
+      This is part of our beta expression language AQL.
+      [Learn more](https://community.holistics.io/t/upcoming-our-brand-new-analytics-query-language-aql/1533).
+      [Request beta](https://form.jotform.com/230511857392457?betaFeature=AQL%20Expression).
+      :::
+  
+  - trigger: ":aqltip"
+    replace: |
+      :::tip Knowledge Checkpoint
+      This documentation assumes you are familiar with the following concepts:
+
+      :::
+
+  - trigger: ":img"
+    replace: | 
+      <img alt="" title="" src="https://cdn.holistics.io/docs/..." width="..." height="..."/>
+
+  - trigger: ":parent"
+    replace: |
+      import sys
+      from pathlib import Path
+      PARENT_DIR = Path(__file__).parent.parent.resolve()
+      sys.path.append(str(PARENT_DIR))
+
+  - trigger: ":deprec"
+    replace: |
+      <!-- Deprecated -->
+
+      <head>
+        <meta name="robots" content="noindex, nofollow"/>
+      </head>
+  
+  - trigger: ":storage"
+    replace: /proj/uppmax2024-2-13/hapham

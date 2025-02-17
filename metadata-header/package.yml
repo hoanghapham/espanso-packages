@@ -1,0 +1,526 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+global_vars:
+
+  - name: added_date
+    type: date
+    params:
+      format: |
+          - "[[%Y]]"
+          - "[[%Y-M%m]]"
+          - "[[%Y-W%V]]"
+          - "[[days/%Y-%m-%d_%A]]"
+
+matches:
+
+  # General schema
+  - trigger: ":add"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: 
+      Subtype: 
+      Description::
+      Tags::
+
+      ---
+
+
+  # Concepts
+  - trigger: ":conc"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Concept]]"
+      Subtype: 
+      Authors: 
+      Related-notes: 
+      aliases: 
+      ---
+
+      # Definition
+
+      # More details
+
+      # References 
+
+
+  # Location
+  - trigger: ":loc"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Location]]"
+      Subtype: 
+      Description: 
+      Link: 
+      Rating: 
+      Address: 
+      Related-notes: 
+      Status: 
+
+      ---
+
+  - trigger: ":res"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Location]]"
+      Subtype: "[[Restaurant]]"
+      Description: 
+      Address: 
+      Related-notes: 
+      Link: 
+      Vibe: 
+      Food::
+      Price::
+      Status: 
+
+      ---
+
+  # People
+  - trigger: ":ppl"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Person]]"
+      Subtype: 
+      Full Name: 
+      Description::
+      Nationality: 
+      Link: 
+      Related-notes: 
+      DOB: 
+      Life: 
+
+      ---
+  
+  # Contents
+  - trigger: ":content"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: 
+      Subtype: 
+      Authors: 
+      Published: 
+      Description: 
+      Related-notes: 
+      Link: 
+      Status: "[[new]]"
+      Done-date: 
+
+      ---
+
+      # Take-aways
+
+      # Highlights
+
+      
+      
+
+  - trigger: ":comic"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Comics]]"
+      Subtype: 
+      Authors: 
+      Published: 
+      Description: 
+      Related-notes: 
+      Link: 
+      Status: "[[new]]"
+      Done-date: 
+      Rating: 
+
+      ---
+
+      # Good points
+
+      # Bad points
+
+
+  # Books
+  - trigger: ":book"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Book]]"
+      Subtype: 
+      Authors: 
+      Series: 
+      Published: 
+      Description: 
+      Related-notes: 
+      Link: 
+      Status: "[[new]]"
+      Done-date: 
+      Rating: 
+      
+      ---
+
+      # Take-aways 
+
+      # Highlights
+
+  # Tool
+  - trigger: ":tool"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Tool]]"
+      Subtype: 
+      Description: 
+      Related-notes: 
+      Link: 
+
+      ---
+
+  # Course notes
+  - trigger: ":course"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Course]]"
+      Subtype: 
+      Provider: 
+      Description: 
+      Related-notes: 
+      Link: 
+      Status: "[[new]]"
+
+      ---
+  
+    
+  - trigger: ":org"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Organization]]"
+      Subtype: 
+      Description: 
+      Related-notes: 
+      Address: 
+
+      ---
+
+  - trigger: ":pj"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Project]]"
+      Subtype: 
+      Description: 
+      Related-notes: 
+      Status: "[[new]]"
+      Done-date: 
+
+      ---
+  
+  
+  # Meeting
+  - trigger: ":meet"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Meeting]]"
+      Subtype: 
+      Host: 
+      Participants: 
+      Description::
+      Tags::
+
+      ---
+
+  # Activities
+  - trigger: ":act"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Activity]]"
+      Subtype: 
+      Activity type: 
+      Description: 
+      Related-notes: 
+      Level: 
+
+      ---
+
+  # Food
+  - trigger: ":food"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Food]]"
+      Subtype: 
+      Description: 
+      Related-notes: 
+
+      ---
+      
+      # Recipes
+
+
+  - trigger: ":recipe"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Recipe]]"
+      Subtype: 
+      Description: 
+      Related-notes: 
+
+      ---
+
+      # Ingredients
+
+      
+      # Recipes
+
+
+  
+  # Songs
+  - trigger: ":song"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Songs]]"
+      Subtype: 
+      Composers: 
+      Performers: 
+      Appeared-in: 
+      Related-notes: 
+      Status: "[[new]]"
+      
+      ---
+
+
+  # event
+  - trigger: ":event"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Event]]"
+      Subtype: 
+      Description: 
+      Event-date: 
+      Related-notes: 
+
+      ---
+
+      # Notes
+
+      # Take-aways
+
+
+   # Notes
+  - trigger: ":note"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Notes]]"
+      Subtype: 
+      Description: 
+      Related-notes: 
+
+      ---
+
+  - trigger: ":wrt"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Writing]]"
+      Subtype: 
+      Description: 
+      Related-notes: 
+      Status::
+
+      ---
+
+  - trigger: ":movie"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Movie]]"
+      Subtype: 
+      Director: 
+      Actors::
+      Description: 
+      Released::
+      Related-notes: 
+      Status: "[[new]]"
+      Done-date: 
+      Rating: 
+      
+      ---
+
+  - trigger: ":tvs"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[TV-Series]]"
+      Subtype: 
+      Director: 
+      Actors::
+      Description: 
+      Released::
+      Related-notes: 
+      Status: "[[new]]"
+      Done-date: 
+      Rating: 
+      
+      ---
+
+
+  - trigger: ":anime"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Anime]]"
+      Subtype: 
+      Franchise: 
+      Studio: 
+      Director: 
+      Authors: 
+      Description: 
+      Released::
+      Related-notes: 
+      Status: "[[new]]"
+      Done-date: 
+      Rating: 
+      
+      ---
+
+  - trigger: ":drink"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Drink]]"
+      Subtype: 
+      Description: 
+      Link: 
+      Related-notes: 
+      Rating: 
+      
+      ---
+  
+  - trigger: ":job"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Job]]"
+      Subtype: 
+      Description: 
+      Link: 
+      Related-notes: 
+      Status: 
+      
+      ---
+
+  - trigger: ":plant"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Plants]]"
+      Subtype: 
+      Description: 
+      Link: 
+      Related-notes: 
+      
+      ---
+
+  - trigger: ":retro"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Notes]]`"
+      Subtype: "[[Retro]]"
+      Description: 
+      Related-notes: 
+
+      ---
+
+      # Context
+
+      # Good
+
+      # Bad
+
+      # Start
+
+      # Stop
+
+      # Other comments
+
+  - trigger: ":method"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Method]]"
+      Subtype: 
+      Author: 
+      Description: 
+      Related-notes: 
+
+      ---
+
+  - trigger: ":sign"
+    replace: |
+      Regards,
+
+      Ha Pham
+
+      ---
+  
+  - trigger: ":game"
+    replace: |
+      ---
+      Added: 
+      {{added_date}}
+      Type: "[[Game]]"
+      Developer: 
+      Director: 
+      Released: 
+      Genre: 
+      Description: 
+      Related-notes: 
+      Status: "[[new]]"
+      Done-date: 
+      
+      ---
