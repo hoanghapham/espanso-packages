@@ -28,8 +28,8 @@ matches:
       {{added_date}}
       Type: 
       Subtype: 
-      Description::
-      Tags::
+      Description:
+      Related-notes:
 
       ---
 
@@ -524,3 +524,4 @@ matches:
       Done-date: 
       
       ---
+
