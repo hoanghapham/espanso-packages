@@ -60,6 +60,9 @@ matches:
   - trigger: ":wnote"
     replace: "[[{{current_week}}]]"
 
+  - trigger: "ynote"
+    replace: "[[{{current_year}}]]"
+  
   - trigger: ":mnote"
     replace: "[[{{current_month}}]]"
 
@@ -138,4 +141,5 @@ matches:
       </head>
   
   - trigger: ":storage"
+
     replace: /proj/uppmax2024-2-13/hapham
